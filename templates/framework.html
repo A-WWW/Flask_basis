@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="{{url_for('static', filename ='css/main.css') }}">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+{% block title -%}
+{% if title %}
+    <title> Option - {{title}}</title>
+{% else %}
+    <title> Option - intermediate option </title>
+{% endif %}
+{% endblock %}
+</head>
+<body>
+    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+        <span class="fs-4">Horns and hooves</span>
+      </a>
+      <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <a class="me-3 py-2 text-dark text-decoration-none" href="/">Index</a>
+        <a class="me-3 py-2 text-dark text-decoration-none" href="/test">Test</a>
+        <a class="me-3 py-2 text-dark text-decoration-none" href="/base">Base</a>
+      </nav>
+    </div>
+{% block content -%}
+    {%  if title -%}
+<h1> Option - {{title}} </h1>
+    {% else -%}
+<h1> Option - intermediate option </h1>
+    {% endif -%}
+    {%- block mainmenu -%}
+<ul>
+    {% for m in menu -%}
+<li>{{m}}</li>
+    {% endfor -%}
+</ul>
+    {% endblock mainmenu -%}
+{% endblock -%}
+
+</body>
+</html>
